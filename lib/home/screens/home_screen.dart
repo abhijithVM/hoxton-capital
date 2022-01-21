@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hoxton/home/blocs/bloc/user_bloc.dart';
 import 'package:hoxton/home/custom_widgets/input_decoration.dart';
+import 'package:hoxton/home/custom_widgets/user_list.dart';
 import 'package:hoxton/home/custom_widgets/users_listTile.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -23,8 +24,34 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildTitleCard(),
+              customGapSize(),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "TOP USERS FROM YOUR COMMUNITY",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              ),
+              BlocBuilder<UserBloc, UserState>(
+                builder: (context, state) {
+                  if (state is UserSuccess) {
+                    return SizedBox(
+                      height: 110,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: state.userList.length,
+                          itemBuilder: (context, i) => const Padding(
+                                padding: EdgeInsets.only(left: 10.0),
+                                child: UserScrollableList(),
+                              )),
+                    );
+                  }
+                  return Container();
+                },
+              ),
               BlocBuilder<UserBloc, UserState>(
                 builder: (context, state) {
                   if (state is UserSuccess) {
