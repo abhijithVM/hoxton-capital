@@ -20,3 +20,7 @@ Widget cutomsaleCard(String count, String label) => Padding(
         ],
       ),
     );
+
+Widget customGapSize({double height = 12}) => SizedBox(
+      height: height,
+    );

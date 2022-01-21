@@ -50,8 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildTitleCard() => Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20)),
+              bottomRight: Radius.circular(16),
+              bottomLeft: Radius.circular(16)),
           color: Color(0xFF171D3C),
         ),
         child: Padding(
@@ -91,7 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              customTextStyle(label: '\$56,271.68'),
+              customGapSize(),
+              customTextStyle(label: '\$56,271.68', fontSize: 20),
+              customGapSize(height: 4),
               RichText(
                   text: const TextSpan(
                       text: "+\$9,736   ",
@@ -101,7 +103,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         text: "   ↑↑ 2.3%",
                         style: TextStyle(color: Color(0xFF3CD942)))
                   ])),
+              customGapSize(),
               customTextStyle(label: 'Account balance', color: Colors.white54),
+              customGapSize(),
               IntrinsicHeight(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
