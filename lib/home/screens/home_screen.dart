@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hoxton/home/blocs/bloc/user_bloc.dart';
+import 'package:hoxton/home/custom_widgets/custom_chart.dart';
 import 'package:hoxton/home/custom_widgets/input_decoration.dart';
 import 'package:hoxton/home/custom_widgets/user_list.dart';
 import 'package:hoxton/home/custom_widgets/users_listTile.dart';
@@ -31,6 +32,15 @@ class _MyHomePageState extends State<MyHomePage> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
+                  "PERFORMANCE CHART",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              ),
+              customGapSize(height: 8),
+              SizedBox(height: 120, child: salesChart(context)),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
                   "TOP USERS FROM YOUR COMMUNITY",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
@@ -51,6 +61,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   }
                   return Container();
                 },
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "RECENT TRANSACTIONS",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
               ),
               BlocBuilder<UserBloc, UserState>(
                 builder: (context, state) {
