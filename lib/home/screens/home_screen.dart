@@ -37,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               customGapSize(height: 8),
-              SizedBox(height: 120, child: salesChart(context)),
+              SizedBox(height: 160, child: salesChart(context)),
+              customGapSize(height: 8),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(

@@ -133,7 +133,7 @@ List<LineChartBarData> linesBarData2() {
         const FlSpot(12, 2.6),
         const FlSpot(13, 3.9),
       ],
-      isCurved: true,
+      isCurved: false,
       colors: const [
         Color(0x99aa4cfc),
       ],
