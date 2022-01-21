@@ -10,15 +10,16 @@ class UsersListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(Icons.person),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(user?.name ?? ""),
-          Text("United Kingdom"),
-        ],
-      ),
+      leading: Container(
+          padding: const EdgeInsets.all(3),
+          decoration: const BoxDecoration(
+            color: Colors.black87,
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+          ),
+          child:
+              const Icon(Icons.person_outline_outlined, color: Colors.white)),
+      title: Text(user?.name ?? ""),
+      subtitle: Text(user?.address?.city ?? ""),
       trailing: IntrinsicWidth(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,13 +28,16 @@ class UsersListTile extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text("8000 AED"),
-                Text("11 Aug 2021"),
+              children: [
+                Text("8000 AED", style: Theme.of(context).textTheme.subtitle2),
               ],
             ),
             Transform.scale(
-                scale: 0.74, child: const Icon(Icons.hourglass_bottom))
+                scale: 0.74,
+                child: const Icon(
+                  Icons.verified_outlined,
+                  color: Colors.green,
+                ))
           ],
         ),
       ),
